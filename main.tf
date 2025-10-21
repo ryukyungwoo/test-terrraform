@@ -15,3 +15,10 @@ module "security" {
   vpc_cidr     = module.network.vpc_cidr_block
   cluster_name = "${var.project_name}-${var.environment}-eks"
 }
+
+module "iam-eks" {
+  source = "./modules/iam-eks"
+
+  project_name = var.project_name
+  environment = var.environment
+}
